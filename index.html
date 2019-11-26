@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crime Reporting</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+
+        <link rel="stylesheet" href="crimestyle.css">
+        <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+        <script src="crimecode.js"></script>
+    </head>
+    <body>
+        <div class="mybody">
+            <h2 class="title">Crime Report</h2>
+            <hr/>
+            <br/>
+            <div id="logger">
+                <h2>Login</h2>
+                <br/>
+                <p id="msgl" style="display: none;">Please Wait...</p>
+                <input type="text" id="username" placeholder="Enter User Email" />
+                <br/><br/>
+                <input type="password" id="pswd" placeholder="Password" />
+                <br/><br/>
+                <button onclick="login1()" class="btn2">Login</button>
+                <br/>
+                <button onclick="forget()" class="btn">Forget Password</button>
+                <br/><br/>
+            </div>
+
+            <div id="report" class="subBody1" style="display: none;">
+
+                
+                <input type="file" id="photo" accept="image/*" onchange="showImg(this)" hidden></input>
+                Click this button to add Picture as Evidence<br/>
+                <button onclick="takePhoto()"><img id="pic" src="photo.png" width="100px"/></button>
+                <span id="clr" style="display: none;"> Uploading...</span>
+                <br/>
+                <input type="text" placeholder="Vehicle Plate Number" id="carNumber" />
+                <br/>
+                <input type="text" placeholder="Crime Location" id="crimeLocation" />
+                <br/>
+                Crime Detail here:<br/>
+                <textarea id="crime"></textarea>
+                <br/>
+                <input type="text" placeholder="Driver Name" id="driverName"/>
+                <br/>
+                <input type="text" placeholder="Driver License ID" id="driverLic" />
+                <br/>
+                <button onclick="saveCrime()" class="btn2">Submit</button>
+                <br/>
+                <button onclick="clearCrime()" class="btn">Clear</button>
+                <br/><br/>
+            </div>
+            <hr/>
+            <footer>
+                Project Initiated from University of Ilorin. Nigeria
+            </footer>
+        </div>
+    </body>
+</html>

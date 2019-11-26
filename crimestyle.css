@@ -1,0 +1,43 @@
+.mybody{
+    width: 90%;
+    background-color: white;
+    text-align: center;
+    border: solid 1px;
+    box-shadow: 10px 10px palegreen;
+}
+.title{
+    background-color: palevioletred;
+}
+.btn{
+    background-color: rgb(74, 159, 223);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+.btn2{
+    color: rgb(74, 159, 223);
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+.subBody1{
+    width: 80%;
+    color: white;
+    background-color: red;
+    border: solid 1px;
+    box-shadow: 10px 10px gray;
+}
+
+input, textarea{
+    width: 80%;
+    font-size: large;
+    background-color: turquoise;
+    border-radius: 20px;
+    padding: 10px;
+}
