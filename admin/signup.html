@@ -1,0 +1,122 @@
+<html>
+<head>
+
+<style>
+.boxes{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 260px;
+  padding: 20px;
+ 
+  border: none;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #9099f9;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(10,10,0,0.2) ;
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+<script>
+
+    // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "AIzaSyCdghsA-A9heIHlt4sb2TqOGAzMro429ts",
+    authDomain: "offencekeeper.firebaseapp.com",
+    databaseURL: "https://offencekeeper.firebaseio.com",
+    projectId: "offencekeeper",
+    storageBucket: "offencekeeper.appspot.com",
+    messagingSenderId: "Semiu"
+  };
+  firebase.initializeApp(config);
+  
+
+  function newUser(){
+	eml = sname.value;
+	pswd = "offencekeeper";
+  mk = document.getElementById("makeAdmin");
+  
+	
+	test = eml.toLowerCase();
+	//if (test.includes("@vodacom") || test.includes("@vodafone") || test.includes("@getvodacom")){
+  var aut = firebase.auth();
+  //msgs.innerHTML = "Please Wait... Contacting Server";
+  
+	msgs.style.display ="block";
+	firebase.auth().createUserWithEmailAndPassword(eml, pswd).then(function(user1){
+
+    //check if this is an Admin
+    if (mk.checked == true){
+      var user = firebase.auth().currentUser;
+      alert(user.email);
+      user.updateProfile({
+        displayName: "admin"
+      }).then(function(){
+        alert("Make Admin Successfully!");
+      }).catch(function(error){
+        alert ("There is issue "+ error);
+      });
+    }
+
+    aut.sendPasswordResetEmail(eml).then(function(){
+		//alert("Check Your Email for confirmation");
+    //window.open("login.html","_self");
+    //msgs.innerHTML = "User Created Successfully. An Email has been sent to the user for confirmation!";
+    msgs.innerHTML = "User Created Successfully. An Email has been sent to the user " + eml +" for confirmation!";
+    sname.value = "";
+    
+
+	  }).catch(function(error){
+		//alert (error.message);
+    msgs.innerHTML = error.message;
+	
+    });
+
+  }).catch(function(error){
+		alert(error.message);
+	});
+  
+  
+    
+  
+	
+  
+  
+  
+	
+setTimeout(function(){
+  
+},5000);
+  
+  
+}
+</script>
+</head>
+
+<body style=" text-align:center;" >
+<br/>
+<h1>Create New User</h1>
+<br/><br/>
+
+<div>
+<img src="logo.png"></img>
+</div>
+<br/>
+<p id="msgs" style="display:none;">Please Wait...</p>
+<div>
+
+<input type="text" class="boxes" placeholder="Official Email address" id="sname"></input>
+<br/><br/>
+<input type="checkbox" id="makeAdmin"/> Member of Admin group<br/><br/>
+<button onclick="newUser()" style="width:300px; padding:10px;">Add User</button>
+
+</div>
+
+</body>
