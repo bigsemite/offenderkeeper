@@ -107,7 +107,7 @@ function loadingFB(){
 
 function insertDB(a,b,c,d,e,f,g){
     var dat = "<tr><td>" + a + "</td><td>" + e + "</td><td>" + b + "</td><td>" + d + "</td><td>"+ c;
-    dat += "</td><td>" + g + "</td><td><a href='"+ f + "'><img width='64px' src='"+ f + "'/></a></td><td><button onclick='removeDB(\"" + a + '\",\"'+ b+ "\")'>Delete</button></td></tr>";
+    dat += "</td><td>" + g + "</td><td><a href='"+ f + "'><img width='64px' src='"+ f + "'/></a></td><td><button onclick='removeDB(\"" + a + '\",\"'+ b+ "\")'>Update</button></td></tr>";
     tResult1.innerHTML += dat;
 
     
@@ -116,6 +116,9 @@ function insertDB(a,b,c,d,e,f,g){
 
 
 function removeDB(ss, loc){
+
+    alert("This feature is in progress");
+    /*
     var db = firebase.database();
     //var db = new Firebase("https://sitelocator.firebaseio.com/"+ loc +"/" +ss);
     var sk = db.ref(loc).child(ss);
@@ -130,6 +133,7 @@ function removeDB(ss, loc){
         alert("Removed! \n Refresh the page to reflect changes");
         
     }
+    */
 }
 
 function forgetpass1(){
