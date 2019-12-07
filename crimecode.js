@@ -1,5 +1,5 @@
 var config = {
-    apiKey: "AIzaSyCdghsA-A9heIHlt4sb2TqOGAzMro429ts",
+    apiKey: "API-KEY",
     authDomain: "offencekeeper.firebaseapp.com",
     databaseURL: "https://offencekeeper.firebaseio.com",
     projectId: "offencekeeper",
